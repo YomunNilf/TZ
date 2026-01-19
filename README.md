@@ -16,9 +16,17 @@
 
 ### Запуск одной командой (Docker Compose)
 
+Просто выполните:
+
 ```bash
 docker-compose up --build
 ```
+
+Эта команда автоматически:
+- Соберет Docker образ приложения
+- Запустит PostgreSQL
+- Запустит микросервис
+- Настроит все зависимости
 
 Сервис будет доступен на `http://localhost:8080`
 
@@ -142,4 +150,22 @@ go test -v
 - **PostgreSQL** - база данных
 - **Docker** - контейнеризация
 - **Docker Compose** - оркестрация
+
+## Публикация репозитория
+
+Для публикации кода на GitHub/GitLab:
+
+1. Создайте новый репозиторий на GitHub/GitLab
+2. Добавьте remote и отправьте код:
+
+```bash
+git remote add origin <URL_вашего_репозитория>
+git branch -M main
+git push -u origin main
+```
+
+Или используйте GitHub CLI:
+```bash
+gh repo create numbers-service --public --source=. --remote=origin --push
+```
 
